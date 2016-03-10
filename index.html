@@ -8,32 +8,40 @@
 	<title>WebApp</title>
 
 	<link rel="stylesheet" href="css/main.css">
+	<script src="js/plugins.js"></script>
+
 </head>
-<body>
+<body onload="getNotifications()">
 	<header>
+    <div class="Headcontainer">
 		<div class="layout-wrap">
 			<a href="#"><img src="img/logo-netcraft.svg" alt="netcraft"></a>
-
 			<form class="search-box">
 				<input type="search" name="q" placeholder="search">
 			</form>
+    </div>
 		</div>
 	</header>
-
+<div class="container">
 	<section class="page-body layout-wrap">
-		<div class="notifications"></div>
-
+ <div class="page-bodyCon">
+    <div class="notifications">
+		<div class="notificationsCon" id="notificationsCon">
+    </div>
+      </div>
 		<nav>
 			<div class="nav-section">
-				<p>Select Reporting Platform</p>
-
+				<div class="navSHead">
+				<p class="header">Select Reporting Platform</p>
+				<img class="navImg" src="img/icons/action-report-new.png" alt="Navgition img">
+          </div>
 				<div class="menu">
-					<div class="menu-caption">
-						<p>Choose QS report</p>
+					<div class="menu-caption"  >
+						<p >Choose QS report</p>
 					</div>
 
-					<ul class="action-list">
-						<li><a href="#">link</a></li>
+					<ul  class="action-list">
+						<li><a href="#">link aaaaa</a></li>
 						<li><a href="#">link</a></li>
 						<li><a href="#">link</a></li>
 						<li><a href="#">link</a></li>
@@ -43,7 +51,11 @@
 			</div>
 
 			<div class="nav-section">
-				<p>Select Dashboard</p>
+
+				<div class="navSHead">
+				<p class="header">Select  </br> Dashboard</p>
+				<img class="navImg" src="img/icons/action-report-top.png" alt="Navgition img">
+					</div>
 
 				<div class="menu">
 					<div class="menu-caption">
@@ -61,7 +73,11 @@
 			</div>
 
 			<div class="nav-section">
-				<p>Help &amp; Tutorials</p>
+
+				<div class="navSHead">
+				<p class="header">Help &amp; </br> Tutorials</p>
+				<img class="navImg" src="img/icons/actions-help.png" alt="Navgition img">
+					</div>
 
 				<div class="menu">
 					<div class="menu-caption">
@@ -100,7 +116,8 @@
 			</div>
 		</section>
 	</section>
-
+ </div>
+</div>
 	<script src="js/main.js"></script>
 </body>
 </html>

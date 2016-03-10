@@ -1,5 +1,128 @@
-header .layout-wrap{
+html{
+font: 62.5%  Cambria, Georgia, serif;
+}
+
+
+.layout-wrap{
+ max-width: 1200px;
+ min-width: 640px;
+ width:100%;
+ margin:auto;
+}
+
+
+ .Headcontainer{
 width:100%;
 background-color: black;
+height: 7rem;
+}
 
+header form{
+  float: right;
+}
+
+header input,header img{
+  margin-top: 2rem;
+}
+
+/* header */
+
+.container{
+  background-image: url("D:/github/webapp/img/body-background.jpg");
+  background-repeat: no-repeat;
+  width:100%;
+background-size: cover;
+font-size: 1.8rem;
+}
+
+.page-body{
+background-color: rgba(128, 128, 128,0.4)
+
+}
+
+.page-bodyCon{
+    width: 95%;
+    margin: auto;
+}
+
+.notificationsCon{
+  background-color: white;
+  border:1px solid black;
+
+}
+
+nav{
+margin-top:8rem;
+display: inline-flex;
+width:100%;
+
+}
+
+.navSHead{
+  background-color: black;
+  overflow: hidden;
+  height: 10rem;
+  width: auto;
+}
+
+.nav-section{
+width:30%;
+}
+
+.nav-section+.nav-section{
+margin-left: 8rem;
+}
+
+.nav-section .header {
+color: white;
+font-size: 2.3rem;
+text-align: center;
+width: 60%;
+margin: auto;
+}
+
+.navImg{
+  margin: auto;
+  width:10rem;
+}
+
+
+.nav-section p {
+margin-top: 0;
+margin-bottom: 0;
+cursor: pointer;
+}
+
+.menu{
+  background-color: white;
+  position: relative;
+}
+
+.menu-caption{
+  cursor: pointer;
+}
+
+.action-list{
+  display: none;
+}
+
+.nav-section:hover .action-list {
+  display: block;
+}
+
+.nav-section ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+   z-index: 1;
+   position: absolute;
+   background-color: white;
+  width: 32.7rem;
+}
+
+.nav-section ul>li>a {
+border-bottom: 1px solid #999999;
+border-top: 1px solid #999999;
+text-decoration:none;
+color: black;
 }
