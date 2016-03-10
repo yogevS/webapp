@@ -1,13 +1,11 @@
 
-//document.getElementById("menu-nav1").addEventListener("click", function(){
-// var x=location.hash;
-//  if(x == "#nav1"){
-//     location.hash="";
-//  }
-//else{
-//  location.hash="nav1";
-//}
-//});
+function submitReports(){
+
+
+document.getElementById("notificationsCon").innerHTML ="1";
+return false;
+}
+
 
 
 
@@ -62,3 +60,70 @@ function checkTime(i) {
 if (i<10) {i="0" + i}
 return i
 }
+
+
+
+document.getElementById("tabHead1").addEventListener("click", function(){
+
+document.getElementById("tabHead1").style.background ="white";
+document.getElementById("tabHead1Con").style.color ="black";
+
+  document.getElementById("tabHead2").style.background ="#737373";
+  document.getElementById("tabHead2Con").style.color ="white";
+
+  document.getElementById("tabHead3").style.background ="#737373";
+  document.getElementById("tabHead3Con").style.color ="white";
+
+  document.getElementById("tabHead4").style.background ="#737373";
+  document.getElementById("tabHead4Con").style.color ="white";
+
+});
+
+document.getElementById("tabHead2").addEventListener("click", function(){
+
+document.getElementById("tabHead2").style.background ="white";
+document.getElementById("tabHead2Con").style.color ="black";
+
+  document.getElementById("tabHead1").style.background ="#737373";
+  document.getElementById("tabHead1Con").style.color ="white";
+
+  document.getElementById("tabHead3").style.background ="#737373";
+  document.getElementById("tabHead3Con").style.color ="white";
+
+  document.getElementById("tabHead4").style.background ="#737373";
+  document.getElementById("tabHead4Con").style.color ="white";
+
+});
+
+document.getElementById("tabHead3").addEventListener("click", function(){
+
+document.getElementById("tabHead3").style.background ="white";
+document.getElementById("tabHead3Con").style.color ="black";
+
+  document.getElementById("tabHead2").style.background ="#737373";
+  document.getElementById("tabHead2Con").style.color ="white";
+
+  document.getElementById("tabHead1").style.background ="#737373";
+  document.getElementById("tabHead1Con").style.color ="white";
+
+  document.getElementById("tabHead4").style.background ="#737373";
+  document.getElementById("tabHead4Con").style.color ="white";
+
+});
+
+
+document.getElementById("tabHead4").addEventListener("click", function(){
+
+document.getElementById("tabHead4").style.background ="white";
+document.getElementById("tabHead4Con").style.color ="black";
+
+  document.getElementById("tabHead2").style.background ="#737373";
+  document.getElementById("tabHead2Con").style.color ="white";
+
+  document.getElementById("tabHead3").style.background ="#737373";
+  document.getElementById("tabHead3Con").style.color ="white";
+
+  document.getElementById("tabHead1").style.background ="#737373";
+  document.getElementById("tabHead1Con").style.color ="white";
+
+});

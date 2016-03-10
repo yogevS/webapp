@@ -69,8 +69,8 @@ width:100%;
 width:30%;
 }
 
-.nav-section+.nav-section{
-margin-left: 8rem;
+.navSpace{
+  width: 5%;
 }
 
 .nav-section .header {
@@ -125,4 +125,158 @@ border-bottom: 1px solid #999999;
 border-top: 1px solid #999999;
 text-decoration:none;
 color: black;
+}
+
+/* nav */
+
+.tabs{
+
+  margin-top:8rem;
+  width:100%;
+
+}
+
+.tabs ul{
+  display: inline-flex;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.tabHead{
+  width:22%;
+  background-color: 	#737373;
+  text-align: center;
+  height: 5rem;
+  cursor: pointer;
+}
+
+.tabHead p{
+  margin-bottom: 0;
+}
+
+.tabHead a{
+  text-decoration:none;
+  color: white;
+}
+
+.tabHeadSpace{
+  width:4%;
+}
+
+
+
+[id="quick-reports"]{
+  display: none;
+}
+
+[id="quick-reports"]:target {
+  display: block;
+}
+
+
+[id="my-folders"]{
+  display: none;
+}
+
+[id="my-folders"]:target{
+  display: block;
+}
+
+
+[id="my-team-folders"]{
+  display: none;
+}
+
+
+[id="my-team-folders"]:target{
+  display: block;
+}
+
+[id="public-folders"]{
+  display: none;
+}
+
+
+[id="public-folders"]:target{
+  display: block;
+}
+
+.tab{
+  background-color: white;
+
+}
+
+.newTabLink{
+  float: right;
+  margin-right: 2rem;
+  margin-top: 2rem;
+}
+
+
+iframe{
+  width: 96%;
+  height: 50rem;
+  margin-left: 2rem;
+  margin-top: 5rem;
+}
+
+#quick-reports .tabSetting{
+  width: 100%;
+  height: 50rem;
+}
+
+
+.tabSettingIm{
+  float:right;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.tabSetting  input[type=checkbox]{
+display: none;
+}
+
+.reportFormCon{
+  clear: both;
+ border: 1px solid black;
+ width: 96%;
+ margin: auto;
+}
+
+.reportFormCon label{
+  margin-left: 7rem;
+}
+
+.report input{
+  width: 30rem;
+}
+
+.report{
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #b3b3b3;
+}
+
+.saveData{
+  background-color: black;
+  color: white;
+  border-style: none;
+  width: 8rem;
+  height: 3rem;
+}
+
+.saveDataCon{
+  width: 96%;
+  margin: auto;
+  display: inline-flex;
+}
+
+.saveSpace{
+width: 100%;
 }

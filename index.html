@@ -49,7 +49,7 @@
 					</ul>
 				</div>
 			</div>
-
+     <div class="navSpace"></div>
 			<div class="nav-section">
 
 				<div class="navSHead">
@@ -71,7 +71,7 @@
 					</ul>
 				</div>
 			</div>
-
+   <div class="navSpace"></div>
 			<div class="nav-section">
 
 				<div class="navSHead">
@@ -96,25 +96,67 @@
 		</nav>
 
 		<section class="tabs">
+
+
+
 			<ul>
-				<li><a href="#quick-reports">Quick Reports</a></li>
-				<li><a href="#my-folders">My Folders</a></li>
-				<li><a href="#my-team-folders">My Team Folders</a></li>
-				<li><a href="#public-folders">Public Folders</a></li>
+			<a href="#quick-reports"><li class="tabHead" id="tabHead1"><p id="tabHead1Con">Quick Reports</p></a></li>
+
+				<li class="tabHeadSpace"></li>
+
+			<a href="#my-folders"><li class="tabHead" id="tabHead2"><p id="tabHead2Con">My Folders</p></a></li>
+
+				<li class="tabHeadSpace"></li>
+
+			<a href="#my-team-folders"><li class="tabHead" id="tabHead3"><p id="tabHead3Con">My Team Folders</p></a></li>
+
+				<li class="tabHeadSpace"></li>
+
+			<a href="#public-folders"><li class="tabHead" id="tabHead4"><p id="tabHead4Con">Public Folders</p></a></li>
+
 			</ul>
 
-			<div id="quick-reports">
+			<div class="tab" id="quick-reports">
+				<div class="tabSetting">
+
+				<label for="report1"><div class="tabSettingImCon"><img class="tabSettingIm" src="img/icons/settings.png" alt="wheel icon">  </div>
+       </label>
+				 <input type="checkbox" id="report1" />
+				 <div class="reportFormCon">
+      <form  onsubmit="return submitReports()">
+				<div class="report">
+				<span>Report 01:</span>
+     <label for="name1">Name:</label>
+        <input id="name1" type="text" name="name" required>
+		<label for="URL1">URL:</label>
+       <input id="URL1" type="url" name="webSiteURL" required>
+		 </div>
+		 <div class="saveDataCon">
+			 <div class="saveSpace"></div>
+		 <input class="saveData" value="Save" type="Submit">
+		 </div>
+      </form>
+         </div>
+				</div>
 			</div>
 
-			<div id="my-folders">
+			<div class="tab" id="my-folders">
+      <a href="http://www.w3schools.com" target="_blank"><img class="newTabLink" src="img/icons/expand.png" alt="new tab link img"></a>
+     <iframe src="http://www.w3schools.com"></iframe>
 			</div>
 
-			<div id="my-team-folders">
+			<div class="tab" id="my-team-folders">
+				daddadaaaaaaa
 			</div>
 
-			<div id="public-folders">
+			<div class="tab" id="public-folders">
+				<a href="http://www.devdocs.io" target="_blank"><img class="newTabLink" src="img/icons/expand.png" alt="new tab link img"></a>
+				<iframe src="http://www.devdocs.io"></iframe>
 			</div>
+
+
 		</section>
+
 	</section>
  </div>
 </div>
