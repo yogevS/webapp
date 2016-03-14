@@ -220,11 +220,12 @@ iframe{
   height: 50rem;
   margin-left: 2rem;
   margin-top: 5rem;
+
 }
 
-#quick-reports .tabSetting{
+#quick-reports .tabCon{
   width: 100%;
-  height: 50rem;
+  height: 60rem;
 }
 
 
@@ -235,15 +236,30 @@ iframe{
   cursor: pointer;
 }
 
-.tabSetting  input[type=checkbox]{
+.tabCon  input[type=checkbox]{
 display: none;
+}
+.tabCon  input[type=checkbox] + .reportFormCon{
+  display: none;
+}
+
+.tabCon   input[type=checkbox]:checked + .reportFormCon{
+  display: block;
+}
+
+.tabConHead{
+  width: 96%;
+  margin: auto;
 }
 
 .reportFormCon{
   clear: both;
  border: 1px solid black;
- width: 96%;
- margin: auto;
+ margin-left: 4.2rem;
+ margin-top: 4rem;
+ position: absolute;;
+z-index: 1;
+background-color: #e6e6e6;
 }
 
 .reportFormCon label{
@@ -279,4 +295,8 @@ display: none;
 
 .saveSpace{
 width: 100%;
+}
+
+.hidden{
+  display: none; /** change to hidden**/
 }
