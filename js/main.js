@@ -1,9 +1,14 @@
 
 function submitReports(){
 var error="";
-document.getElementById("notificationsCon").innerHTML =1;
+
   var ddlist=document.getElementById("report1Select");//dropdwon list
   var option=ddlist.children;
+
+document.forms["report1Form"]["name2"].style.border="none";
+document.forms["report1Form"]["webSiteURL2"].style.border="none";
+document.forms["report1Form"]["name3"].style.border="none";
+document.forms["report1Form"]["webSiteURL3"].style.border="none";
 
 
   var url = document.forms["report1Form"]["webSiteURL1"].value;//get the url
@@ -17,12 +22,40 @@ document.getElementById("notificationsCon").innerHTML =1;
 
 if(((url2 == null || url2 == "" )||( name2 == null || name2 == ""))&&((url3 != null && url3 != "" )&&( name3 != null && name3 != ""))){
   //cheking format,3 doesnt exist before 2
-  error="format is wrong,please keep the format!";
-  document.getElementById("notificationsCon").innerHTML =100;
+  error="format is wrong,please keep the format!,fill 2 before 3.";
+  document.getElementById("error").innerHTML=error;//dropdwon list
 }
 
 
 else{
+
+if((url2 != null && url2 != "" )&&( name2 == null || name2 == "")){
+document.forms["report1Form"]["name2"].style.border="2px solid red";
+document.forms["report1Form"]["name2"].focus();
+}
+
+else{
+
+   if((name2 != null && name2 != "" )&&( url2 == null || url2 == "")){
+ document.forms["report1Form"]["webSiteURL2"].style.border="2px solid red";
+   document.forms["report1Form"]["webSiteURL2"].focus();
+   }
+  else{
+
+    if((url3 != null && url3 != "" )&&( name3 == null || name3 == "")){
+    document.forms["report1Form"]["name3"].style.border="2px solid red";
+    document.forms["report1Form"]["name3"].focus();
+    }
+
+    else{
+
+      if((name3 != null && name3 != "" )&&( url3 == null || url3 == "")){
+    document.forms["report1Form"]["webSiteURL3"].style.border="2px solid red";
+      document.forms["report1Form"]["webSiteURL3"].focus();
+      }
+     else{
+
+
   option[0].innerHTML=name;
   option[0].value=url;
   document.getElementById("report1Iframe").src = url;//put frame
@@ -39,8 +72,8 @@ else{
     ddlist.appendChild(optionCRT2);                    // Append <button> to <body>
   }
     else{
-    option[2].innerHTML=name2;
-    option[2].value=url2;
+    option[1].innerHTML=name2;
+    option[1].value=url2;
      }
 
   }
@@ -52,7 +85,7 @@ else{
 
 
 
-  /**if((url3 != null && url3 != "" )&&( name3 != null && name3 != "")){//cheking if report 3 exist
+if((url3 != null && url3 != "" )&&( name3 != null && name3 != "")){//cheking if report 3 exist
 if(ddlist.length<3){//need to crate option
   var optionCRT = document.createElement("OPTION");        // Create a <button> element
   var  t = document.createTextNode(name3);       // Create a text node
@@ -61,15 +94,15 @@ if(ddlist.length<3){//need to crate option
   ddlist.appendChild(optionCRT);                    // Append <button> to <body>
 }
 else{
-  option[3].innerHTML=name3;
-  option[3].value=url3;
+  option[2].innerHTML=name3;
+  option[2].value=url3;
 }
   }
 else{//report 3 doesnt exist
 if(ddlist.length==3){
 ddlist.removeChild(ddlist.childNodes[3]);
 }
-}**/
+}
 
 
 document.getElementById("report1CB").checked = false;//hiding setting
@@ -77,9 +110,16 @@ var x=document.querySelectorAll(".hidden");//showing elements we hidden
 var length=x.length;
 var i;
 for(i=0 ; i<length ;i++){
-  x[i].style.display="inline";
+  x[i].style.display="block";
 }
 
+  document.getElementById("error").innerHTML="";//dropdwon list
+
+
+}//else for if url3 missing
+}//else for if name3 missing
+}//else for if url2 missing
+}//else for if name2 missing
 }//else for if not in format
 
 return false;
@@ -87,6 +127,36 @@ return false;
 }//end of submitReports
 
 
+/** ***********************************    **/
+
+
+function submitSearch(){
+getNotifications();//restart the notifications
+  var val = document.forms["searchForm"]["q"].value;//get the url
+  var ddlist=document.getElementById("report1Select");//dropdwon list
+  var option=ddlist.children;
+  var length=option.length;
+  var b=true;
+  var i=0;
+  while( i<length && b){
+    if(option[i].innerHTML.search(val)>=0){
+     tab1On();
+      location.hash="#quick-reports";
+      ddlist.selectedIndex =i;
+      changeTab();//change the tab
+        b=false;
+    }
+    i++;
+  }
+  if(b){//meaning we didnt find nothing
+   document.getElementById("notificationsCon").innerHTML ="The searched report <b>" + val + "</b> was not found.";
+  }
+
+
+  return false;
+}
+
+/** ***********************************    **/
 
 function changeTab(){
 var ddlist=document.getElementById("report1Select");//dropdwon list
@@ -96,6 +166,45 @@ var ddlist=document.getElementById("report1Select");//dropdwon list
   document.getElementById("report1NTL").href = sel;//put new tabl link
 }
 
+/** ***********************************    **/
+
+
+document.getElementById("tabSettingIm").addEventListener("click", function(){
+var t=document.getElementById("tabSettingIm");
+if(t.style.transform == ""){
+t.style.transform="rotate(360deg)"
+}
+else{
+  t.style.transform=""
+}
+
+});
+
+/** ***********************************    **/
+
+
+
+function identifyEscKeyPressedEvent(keyEvent){
+            var pressedKeyValue = keyEvent.keyCode || keyEvent.which;
+            if(pressedKeyValue == 27)
+            {
+            document.getElementById("report1CB").checked = false;//hidden report form
+            }
+    }
+
+/** ***********************************    **/
+
+function urlFormat(s){
+  var prefix = 'http://';
+  var prefix2 = 'https://';
+  if (s.substr(0, prefix.length) !== prefix && s.substr(0, prefix2.length) !== prefix2)
+  {
+    s = prefix + s;
+  }
+
+}
+
+/** ***********************************    **/
 
 function AAA(){//need to change,or remove
 var notifications ={
@@ -114,9 +223,11 @@ UTILS.ajax("data/config.json",notifications);
 
 }
 
+/** ***********************************    **/
+
+
 function getNotifications(){
 
-  document.getElementById("notificationsCon").innerHTML  = "esponseText";
   var xhttp = new XMLHttpRequest();
   xhttp.open("GET", "data/config.json");
     xhttp.onreadystatechange = function() {
@@ -130,45 +241,33 @@ function getNotifications(){
     xhttp.send();
 }
 
-
-
-function startTime() {//just demo time function
-var today = new Date()
-var h = today.getHours()
-var m = today.getMinutes()
-var s = today.getSeconds()
-// add a zero in front of numbers<10
-m = checkTime(m)
-s = checkTime(s)
-document.getElementById('txt').innerHTML = h+":"+m+":"+s
-t=setTimeout('startTime()',500)
-}
-function checkTime(i) {
-if (i<10) {i="0" + i}
-return i
-}
-
-
+/** ***********************************    **/
 
 document.getElementById("tabHead1").addEventListener("click", function(){
 
-document.getElementById("tabHead1").style.background ="white";
-document.getElementById("tabHead1Con").style.color ="black";
-
-  document.getElementById("tabHead2").style.background ="#737373";
-  document.getElementById("tabHead2Con").style.color ="white";
-
-  document.getElementById("tabHead3").style.background ="#737373";
-  document.getElementById("tabHead3Con").style.color ="white";
-
-  document.getElementById("tabHead4").style.background ="#737373";
-  document.getElementById("tabHead4Con").style.color ="white";
+tab1On();
 
 });
 
+function tab1On(){
+  document.getElementById("tabHead1").style.background ="#d9d9d9";
+  document.getElementById("tabHead1Con").style.color ="black";
+
+    document.getElementById("tabHead2").style.background ="#737373";
+    document.getElementById("tabHead2Con").style.color ="white";
+
+    document.getElementById("tabHead3").style.background ="#737373";
+    document.getElementById("tabHead3Con").style.color ="white";
+
+    document.getElementById("tabHead4").style.background ="#737373";
+    document.getElementById("tabHead4Con").style.color ="white";
+}
+
+/** ***********************************    **/
+
 document.getElementById("tabHead2").addEventListener("click", function(){
 
-document.getElementById("tabHead2").style.background ="white";
+document.getElementById("tabHead2").style.background ="#d9d9d9";
 document.getElementById("tabHead2Con").style.color ="black";
 
   document.getElementById("tabHead1").style.background ="#737373";
@@ -182,9 +281,11 @@ document.getElementById("tabHead2Con").style.color ="black";
 
 });
 
+/** ***********************************    **/
+
 document.getElementById("tabHead3").addEventListener("click", function(){
 
-document.getElementById("tabHead3").style.background ="white";
+document.getElementById("tabHead3").style.background ="#d9d9d9";
 document.getElementById("tabHead3Con").style.color ="black";
 
   document.getElementById("tabHead2").style.background ="#737373";
@@ -199,9 +300,11 @@ document.getElementById("tabHead3Con").style.color ="black";
 });
 
 
+/** ***********************************    **/
+
 document.getElementById("tabHead4").addEventListener("click", function(){
 
-document.getElementById("tabHead4").style.background ="white";
+document.getElementById("tabHead4").style.background ="#d9d9d9";
 document.getElementById("tabHead4Con").style.color ="black";
 
   document.getElementById("tabHead2").style.background ="#737373";

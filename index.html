@@ -16,7 +16,7 @@
     <div class="Headcontainer">
 		<div class="layout-wrap">
 			<a href="#"><img src="img/logo-netcraft.svg" alt="netcraft"></a>
-			<form class="search-box">
+			<form name="searchForm" class="search-box" onsubmit="return submitSearch()">
 				<input type="search" name="q" placeholder="search">
 			</form>
     </div>
@@ -26,6 +26,7 @@
 	<section class="page-body layout-wrap">
  <div class="page-bodyCon">
     <div class="notifications">
+			<div class="vishidden">blank</div>
 		<div class="notificationsCon" id="notificationsCon">
     </div>
       </div>
@@ -33,7 +34,7 @@
 			<div class="nav-section">
 				<div class="navSHead">
 				<p class="header">Select Reporting Platform</p>
-				<img class="navImg" src="img/icons/action-report-new.png" alt="Navgition img">
+				<div class="navImgCon"><img class="navImg" src="img/icons/action-report-new.png" alt="Navgition img"></div>
           </div>
 				<div class="menu">
 					<div class="menu-caption"  >
@@ -41,11 +42,9 @@
 					</div>
 
 					<ul  class="action-list">
-						<li><a href="#">link aaaaa</a></li>
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
+						<li><a href="#">Corporate</a></li>
+						<li><a href="#">Simple</a></li>
+						<li><a href="#">Business</a></li>
 					</ul>
 				</div>
 			</div>
@@ -54,7 +53,7 @@
 
 				<div class="navSHead">
 				<p class="header">Select  </br> Dashboard</p>
-				<img class="navImg" src="img/icons/action-report-top.png" alt="Navgition img">
+			<div class="navImgCon"><img class="navImg" src="img/icons/action-report-top.png" alt="Navgition img"></div>
 					</div>
 
 				<div class="menu">
@@ -76,7 +75,7 @@
 
 				<div class="navSHead">
 				<p class="header">Help &amp; </br> Tutorials</p>
-				<img class="navImg" src="img/icons/actions-help.png" alt="Navgition img">
+				<div class="navImgCon"><img class="navImg" src="img/icons/actions-help.png" alt="Navgition img"></div>
 					</div>
 
 				<div class="menu">
@@ -119,46 +118,53 @@
 			<div class="tab" id="quick-reports" >
 				<div class="tabCon">
 
+
+ <input type="checkbox" id="report1CB" checked/>
+
          <div class="tabConHead">
 					 <div class="hidden">
 					<select name="webSites" id="report1Select" onchange="changeTab()">
 					    <option value=""></option>
 					  </select>
+					</div>
+						<div class="tabConHeadSpace">
+						</div>
+		    <div class="hidden">
+      <div class="NTLImBox"><a href="" target="_blank" id="report1NTL"><img class="newTabLink" src="img/icons/expand.png" alt="new tab link img"></a>
+			</div>
+			 	</div>
 
-      <a href="" target="_blank" id="report1NTL"><img class="newTabLink" src="img/icons/expand.png" alt="new tab link img"></a>
-	     	</div>
-
-				<label for="report1CB"><img class="tabSettingIm" src="img/icons/settings.png" alt="wheel icon">
-       </label>
+				<label for="report1CB" ><div class="SettingImBox"  ><img class="tabSettingIm" id="tabSettingIm" src="img/icons/settings.png" alt="wheel icon">
+       </div></label>
 			 </div>
-				 <input type="checkbox" id="report1CB" checked/>
 
-				 <div class="reportFormCon">
 
+				 <div class="reportFormCon" onkeydown="identifyEscKeyPressedEvent(event)">
+        <p id="error"></p>
       <form  name="report1Form" onsubmit="return submitReports()">
 
 				<div class="report">
 				<span>Report 01:</span>
      <label for="name1">Name:</label>
-        <input id="name1" type="text" name="name1" required>
+        <input id="name1" type="text" name="name1" required placeholder="eneter name">
 		<label for="URL1">URL:</label>
-       <input id="URL1" type="url" name="webSiteURL1" required>
+       <input id="URL1" type="url" name="webSiteURL1" required placeholder="eneter url">
 		 </div>
 
 		 <div class="report">
 		 <span>Report 02:</span>
 		 <label for="name2">Name:</label>
-		 <input id="name2" type="text" name="name2">
+		 <input id="name2" type="text" name="name2" placeholder="eneter name">
 		 <label for="URL2">URL:</label>
-		 <input id="URL2" type="url" name="webSiteURL2" >
+		 <input id="URL2" type="url" name="webSiteURL2" placeholder="eneter url">
 		 </div>
 
 		 <div class="report">
 		 <span>Report 03:</span>
 		 <label for="name3">Name:</label>
-		 <input id="name3" type="text" name="name3">
+		 <input id="name3" type="text" name="name3" placeholder="eneter name">
 		 <label for="URL3">URL:</label>
-		 <input id="URL3" type="url" name="webSiteURL3">
+		 <input id="URL3" type="url" name="webSiteURL3" placeholder="eneter url">
 		 </div>
 
 		 <div class="saveDataCon">
@@ -168,6 +174,8 @@
       </form>
 
          </div>
+
+
 
    <div class="hidden"><iframe src="" id="report1Iframe"></iframe></div>
 

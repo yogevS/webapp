@@ -45,10 +45,17 @@ background-color: rgba(128, 128, 128,0.4)
     margin: auto;
 }
 
+
 .notificationsCon{
   background-color: white;
   border:1px solid black;
+clear: both;
+margin-top: 4rem;
+}
 
+
+.vishidden{
+  visibility: hidden;
 }
 
 nav{
@@ -82,10 +89,13 @@ margin: auto;
 }
 
 .navImg{
-  margin: auto;
-  width:10rem;
+  width:12rem;
 }
 
+.navImgCon{
+width: 12rem;
+margin: auto;
+}
 
 .nav-section p {
 margin-top: 0;
@@ -98,9 +108,6 @@ cursor: pointer;
   position: relative;
 }
 
-.menu-caption{
-  cursor: pointer;
-}
 
 .action-list{
   display: none;
@@ -110,6 +117,21 @@ cursor: pointer;
   display: block;
 }
 
+.menu-caption{
+  cursor: pointer;
+  border-bottom: 1px solid #999999;
+}
+
+
+.nav-section:hover .menu-caption,.nav-section:hover .navSHead{
+ opacity: 0.5;
+}
+
+.nav-section:hover .menu-caption{
+  background-color: #737373;
+}
+
+
 .nav-section ul{
   margin: 0;
   padding: 0;
@@ -117,23 +139,29 @@ cursor: pointer;
    z-index: 1;
    position: absolute;
    background-color: white;
-  width: 32.7rem;
+width: 100%;
+
+}
+
+.nav-section ul>li{
+  width: 100%;
+  border-bottom: 1px solid #999999;
+  height: 3rem;
+  cursor: pointer;
 }
 
 .nav-section ul>li>a {
-border-bottom: 1px solid #999999;
-border-top: 1px solid #999999;
 text-decoration:none;
 color: black;
+width: 100%;
+padding: 1rem;
 }
 
 /* nav */
 
 .tabs{
-
   margin-top:8rem;
   width:100%;
-
 }
 
 .tabs ul{
@@ -204,8 +232,7 @@ color: black;
 }
 
 .tab{
-  background-color: white;
-
+  background-color: #d9d9d9;
 }
 
 .newTabLink{
@@ -228,43 +255,88 @@ iframe{
   height: 60rem;
 }
 
-
-.tabSettingIm{
-  float:right;
-  margin-right: 2rem;
+#report1Select {
+  width: 150px;
+  height: 35px;
   margin-top: 2rem;
-  cursor: pointer;
+  appearance: none;
 }
 
-.tabCon  input[type=checkbox]{
-display: none;
-}
-.tabCon  input[type=checkbox] + .reportFormCon{
-  display: none;
-}
-
-.tabCon   input[type=checkbox]:checked + .reportFormCon{
-  display: block;
+#report1Select option{
+  width: 150px;
+  height: 35px;
 }
 
 .tabConHead{
   width: 96%;
-  margin: auto;
+  margin-left: 2rem;
+  display: inline-flex;
 }
+
+.tabConHeadSpace{
+  width: 100%;
+}
+
+.NTLImBox{
+  margin-top: 1rem;
+}
+
+.SettingImBox{
+width: 30px;
+height: 30px;
+margin-top: 2rem;
+padding-top: 7px;
+padding-left: 7px;
+}
+
+.tabSettingIm{
+  cursor: pointer;
+  transition-duration: 0.8s;
+  transition-property: transform;
+}
+
+
+.tabCon  input[type=checkbox]{
+display: none;
+}
+
+.tabCon  input[type=checkbox] + div + .reportFormCon{
+  display: none;
+}
+
+
+.tabCon   input[type=checkbox]:checked + div + .reportFormCon{
+  display: block;
+
+}
+
+.tabCon  input[type=checkbox]:checked + .tabConHead  .SettingImBox{
+  background-color: white;
+}
+
+
 
 .reportFormCon{
   clear: both;
- border: 1px solid black;
  margin-left: 4.2rem;
- margin-top: 4rem;
- position: absolute;;
+width: 1072px;
+top: 570px;
+ position: absolute;
 z-index: 1;
-background-color: #e6e6e6;
+background-color: white;
 }
 
 .reportFormCon label{
   margin-left: 7rem;
 }
+
+@media screen and (max-width: 1200px) {
+  .reportFormCon{
+
+  }
+}
+
+
 
 .report input{
   width: 30rem;
