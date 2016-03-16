@@ -141,7 +141,6 @@ return false;
 
 
 function submitSearch(){
-getNotifications();//restart the notifications
 
   var val = document.forms["searchForm"]["q"].value;//get the url
   var ddlist=document.getElementById("report1Select");//dropdwon list
@@ -156,6 +155,7 @@ getNotifications();//restart the notifications
       ddlist.selectedIndex =i;
       changeTab();//change the tab
         b=false;
+        getNotifications();//restart the notifications
     }
     i++;
   }
@@ -180,7 +180,7 @@ var ddlist=document.getElementById("report1Select");//dropdwon list
 /** ***********************************    **/
 
 
-document.getElementById("tabSettingIm").addEventListener("click", function(){
+document.getElementById("tabSettingIm").addEventListener("click", function(){//wheel roatate
 var t=document.getElementById("tabSettingIm");
 if(t.style.transform == ""){
 t.style.transform="rotate(360deg)"
@@ -192,8 +192,6 @@ else{
 });
 
 /** ***********************************    **/
-
-
 
 function identifyEscKeyPressedEvent(keyEvent){
             var pressedKeyValue = keyEvent.keyCode || keyEvent.which;
@@ -285,14 +283,18 @@ function getNotifications(){
   xhttp.open("GET", "data/config.json");
     xhttp.onreadystatechange = function() {
       status = xhttp.status;
-        document.getElementById("notificationsCon").innerHTML  = status;
+        document.getElementById("notificationsCon").innerHTML  = xhttp.readyState == 4 && ((status >= 200 && status < 300) || status === 304);
       if (xhttp.readyState == 4 && ((status >= 200 && status < 300) || status === 304)) {
-         document.getElementById("notificationsCon").innerHTML  = xhttp.responseText;
+        var data=JSON.parse(xhttp.responseText);
+         document.getElementById("notificationsCon").innerHTML  = data.notification;
 
+      }
+      else{
+        document.getElementById("notificationsCon").innerHTML  = "problem with the server,please wait.."
       }
     };
 
-    xhttp.send();
+    xhttp.send(null);
 }
 
 /** ***********************************    **/

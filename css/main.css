@@ -2,7 +2,6 @@ html{
 font: 62.5%  Cambria, Georgia, serif;
 }
 
-
 .layout-wrap{
  max-width: 1200px;
  min-width: 640px;
@@ -28,7 +27,7 @@ header input,header img{
 /* header */
 
 .container{
-  background-image: url("D:/github/webapp/img/body-background.jpg");
+  background-image: url("http://192.168.2.103:8080/img/body-background.jpg");
   background-repeat: no-repeat;
   width:100%;
 background-size: cover;
@@ -51,6 +50,8 @@ background-color: rgba(128, 128, 128,0.4)
   border:1px solid black;
 clear: both;
 margin-top: 4rem;
+padding: 2rem;
+overflow: hidden;
 }
 
 
@@ -313,12 +314,11 @@ display: none;
 }
 
 
-
 .reportFormCon{
   clear: both;
  margin-left: 4.2rem;
 width: 1072px;
-top: 570px;
+top: 610px;
  position: absolute;
 z-index: 1;
 background-color: white;
