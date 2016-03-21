@@ -252,6 +252,7 @@ iframe{
 #quick-reports .tabCon,#my-team-folders .tabCon{
   width: 100%;
   height: 60rem;
+    position: relative;
 }
 
 #report1Select ,#report2Select{
@@ -295,6 +296,7 @@ padding-left: 7px;
 }
 
 
+
 .tabCon  input[type=checkbox]{
 display: none;
 }
@@ -316,9 +318,8 @@ display: none;
 
 .reportFormCon{
   clear: both;
- margin-left: 4.2rem;
-width: 1072px;
-top: 610px;
+width: 96%;
+margin-left: 2rem;
  position: absolute;
 z-index: 1;
 background-color: white;
@@ -327,13 +328,6 @@ background-color: white;
 .reportFormCon label{
   margin-left: 7rem;
 }
-
-@media screen and (max-width: 1200px) {
-  .reportFormCon{
-
-  }
-}
-
 
 
 .report input{

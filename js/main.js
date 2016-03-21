@@ -1,5 +1,7 @@
 
 function submitReports(i){//getting the report who active this
+
+
 var error="";
 var b=false;//bollean var in case when we reomve 2 and 3 toghter
 
@@ -28,8 +30,8 @@ document.forms["report" + i + "Form"]["webSiteURL3"].style.border="none";
 
 document.getElementById("error" + i).innerHTML="";//intillize error
 
-  var url = document.forms["report" + i + "Form"]["webSiteURL1"].value;//get the url
-  var name=document.forms["report" + i + "Form"]["name1"].value;//get the name for url
+  var url1 = document.forms["report" + i + "Form"]["webSiteURL1"].value;//get the url
+  var name1=document.forms["report" + i + "Form"]["name1"].value;//get the name for url
 
   var url2 = document.forms["report" + i + "Form"]["webSiteURL2"].value;//get the url
   var name2=document.forms["report" + i + "Form"]["name2"].value;//get the name for url
@@ -73,23 +75,23 @@ else{
      else{
 
 
-  option[0].innerHTML=name;
-  option[0].value=url;
-  document.getElementById("report" + i + "Iframe").src = url;//put frame
-  document.getElementById("report" + i + "NTL").href = url;//put new tabl link
+  option[0].innerHTML=name1;
+  option[0].value=url1;
+  document.getElementById("report" + i + "Iframe").src = url1;//put frame
+  document.getElementById("report" + i + "NTL").href = url1;//put new tabl link
 
 switch(i){
 case 1:
 
-data.url1=url;
-data.name1=name;
+data.url1=url1;
+data.name1=name1;
 
 break;
 
 case 2:
 
-data.url4=url;
-data.name4=name;
+data.url4=url1;
+data.name4=name1;
 
 
 break;
@@ -219,6 +221,7 @@ ddlist.removeChild(option[1]);
 }
 
 
+if((url1 != null && url1 != "" )&&( name1 != null && name1 != "")){//when we first load page
 document.getElementById("report" + i + "CB").checked = false;//hiding setting
 
 var x=document.querySelectorAll(".hidden" + i);//showing elements we hidden
@@ -229,7 +232,11 @@ for(j=0 ; j<length ;j++){
 }
 
 
+
+}
+
 localStorage.setItem('data', JSON.stringify(data));
+
 
 // Get the data out as a JSON object
 
@@ -356,58 +363,60 @@ function urlFormat(s){
 
 }
 
-/** ***********************************    **/
 
-function AAA(){//need to change,or remove
-var notifications ={
-  text:"dasd"
-  ,res:""
-  ,err:""
-  ,done:function(a){
-      this.res=a;
-  }
-  ,fail:function(b){
-    this.err=b;
-  }
-};
-UTILS.ajax("data/config.json",notifications);
- document.getElementById("notificationsCon").innerHTML =notifications.err;
-
-}
 
 /** ***********************************    **/
 
 function pageLoad(){
 
  var myData=JSON.parse(localStorage.getItem('data'));//wtf why i need 2 Jason.prase
+console.log(myData);
+
 getNotifications();
  switch(myData.tab){
+
  case 1:
  location.hash="#quick-reports";
  tab1On();
  break;
+
  case 2:
  location.hash="#my-folders";
  tab2On();
  break;
+
  case 3:
  location.hash="#my-team-folders";
  tab3On();
  break;
+
  case 4:
  location.hash="#public-folders";
  tab4On();
  break;
+
+ default:
+ location.hash="#quick-reports";
+ tab1On();
+
 }//end of switch
 
- document.forms["report1Form"]["webSiteURL1"].value=myData.url1;//set the url in form
+
+if(myData.url1!=null){//check if we intzallize this report
+document.forms["report1Form"]["webSiteURL1"].value=myData.url1;//set the url in form
+
+}
+
+if(myData.name1!=null){
 document.forms["report1Form"]["name1"].value=myData.name1;//set the name in form
+}
 
 if(myData.url2!=null){//check if we intzallize this report
 document.forms["report1Form"]["webSiteURL2"].value=myData.url2;//set the url in form
 }
 if(myData.name2!=null){
 document.forms["report1Form"]["name2"].value=myData.name2;//set the name in form
+
 }
 if(myData.url3!=null){//check if we intzallize this report
 document.forms["report1Form"]["webSiteURL3"].value=myData.url3;//set the url in form
@@ -417,8 +426,12 @@ document.forms["report1Form"]["name3"].value=myData.name3;//set the name in form
 }
 
 
+if(myData.url4!=null){//check if we intzallize this report
 document.forms["report2Form"]["webSiteURL1"].value=myData.url4;//set the url in form
+}
+if(myData.name4!=null){
 document.forms["report2Form"]["name1"].value=myData.name4;//set the name in form
+}
 
 if(myData.url5!=null){//check if we intzallize this report
 document.forms["report2Form"]["webSiteURL2"].value=myData.url5;//set the url in form
@@ -446,7 +459,6 @@ function getNotifications(){
   xhttp.open("GET", "data/config.json");
     xhttp.onreadystatechange = function() {
       status = xhttp.status;
-        document.getElementById("notificationsCon").innerHTML  = xhttp.readyState == 4 && ((status >= 200 && status < 300) || status === 304);
       if (xhttp.readyState == 4 && ((status >= 200 && status < 300) || status === 304)) {
         var data=JSON.parse(xhttp.responseText);
          document.getElementById("notificationsCon").innerHTML  = data.notification;
