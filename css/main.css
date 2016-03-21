@@ -27,7 +27,7 @@ header input,header img{
 /* header */
 
 .container{
-  background-image: url("http://192.168.2.103:8080/img/body-background.jpg"),url("D:/github/webapp/img/body-background.jpg");//giving 2 backrounf img,1 for when running on moongose local host
+  background-image: url("http://192.168.2.103:8080/img/body-background.jpg"),url("D:/github/webapp/img/body-background.jpg"),url("img/body-background.jpg");//giving 2 backrounf img,1 for when running on moongose local host
   background-repeat: no-repeat;
   width:100%;
 background-size: cover;
