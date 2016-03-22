@@ -369,8 +369,7 @@ function urlFormat(s){
 
 function pageLoad(){
 
- var myData=JSON.parse(localStorage.getItem('data'));//wtf why i need 2 Jason.prase
-console.log(myData);
+ var myData=JSON.parse(localStorage.getItem('data'));
 
 getNotifications();
  switch(myData.tab){
