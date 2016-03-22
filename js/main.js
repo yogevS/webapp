@@ -353,19 +353,6 @@ function identifyEscKeyPressedEvent(keyEvent,Id){
 
 /** ***********************************    **/
 
-function urlFormat(s){
-  var prefix = 'http://';
-  var prefix2 = 'https://';
-  if (s.substr(0, prefix.length) !== prefix && s.substr(0, prefix2.length) !== prefix2)
-  {
-    s = prefix + s;
-  }
-
-}
-
-
-
-/** ***********************************    **/
 
 function pageLoad(){
 

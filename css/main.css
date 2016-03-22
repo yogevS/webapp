@@ -344,17 +344,21 @@ background-color: white;
 }
 
 .saveData{
-  background-color: black;
-  color: white;
-  border-style: none;
-  width: 8rem;
-  height: 3rem;
+margin-left: 2rem;
 }
 
 .saveDataCon{
   width: 96%;
   margin: auto;
   display: inline-flex;
+}
+
+.BTN{
+  background-color: black;
+  color: white;
+  border-style: none;
+  width: 8rem;
+  height: 3rem;
 }
 
 .saveSpace{
